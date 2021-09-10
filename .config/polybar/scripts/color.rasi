@@ -10,17 +10,17 @@
 
 * {
   /* General */
-  text-font:                            "Material Design Icons Desktop  32";
+  text-font:                            "Material Design Icons Desktop  24";
   icon-font:                            "BreezeSans 0";
   
-  option-6-listview-spacing:            6px;
+  option-6-listview-spacing:            5px;
   menu-window-padding:                  5px 5px;
-  menu-element-padding:                 3px 0px -3px 3px;
+  menu-element-padding:                 0px 0px -1px 0px;
 }
 
 #window {
   width: 3.1%;
-  height: 26%;
+  height: 25%;
   anchor: east;
   location: east;
   x-offset: -10px;

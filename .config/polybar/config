@@ -22,7 +22,7 @@ width = 19%
 height = 4.3%
 offset-x = 40.5%
 offset-y = 5%
-radius = 22
+radius = 17
 fixed-center = true
 bottom = false
 
@@ -49,7 +49,7 @@ width = 8%
 height = 4.3%
 offset-x = 0%:10
 offset-y = 0.65%
-radius = 22
+radius = 17 
 fixed-center = true
 bottom = true
 
@@ -65,8 +65,8 @@ padding-right = 0
 module-margin-left = 2
 module-margin-right = 2
  
-font-0 = BreezeSans:pixelsize=14:style=Medium Condensed;4
-font-1 = Material Design Icons Desktop:pixelsize=20;5
+font-0 = BreezeSans:pixelsize=12:style=Medium Condensed;4
+font-1 = Material Design Icons Desktop:pixelsize=16;5
 font-2 = BreezeSans:pixelsize=10:style=Bold Condensed;3
  
 modules-center = search screenshot file-man 
@@ -97,9 +97,9 @@ padding-right = 0
 module-margin-left = 0
 module-margin-right = 0
  
-font-0 = Material Design Icons Desktop:pixelsize=26;1
-font-1 = BreezeSans:pixelsize=28:style=Regular Condensed;-2
-font-2 = Material Design Icons Desktop:pixelsize=18;-10
+font-0 = Material Design Icons Desktop:pixelsize=16;1
+font-1 = BreezeSans:pixelsize=18:style=Regular Condensed;-2
+font-2 = Material Design Icons Desktop:pixelsize=16;-10
  
 modules-left = bspwm
 
@@ -116,7 +116,7 @@ width = 30%
 height = 4.3%
 offset-x = 35%
 offset-y = 6%:1
-radius = 22
+radius = 17 
 fixed-center = true
 bottom = true
 
@@ -155,7 +155,7 @@ width = 11%
 height = 4.3%
 offset-x = 44.5%
 offset-y = 0.65%
-radius = 22 
+radius = 17 
 fixed-center = true
 bottom = true
 
@@ -192,7 +192,7 @@ width = 2.35%
 height = 4.1%
 offset-x = 65.65%:-40
 offset-y = 0.75%
-radius = 22
+radius = 17 
 fixed-center = true
 bottom = true
 
@@ -225,7 +225,7 @@ width = 14%
 height = 4.3%
 offset-x = 68%:-30
 offset-y = 0.65%
-radius = 22
+radius = 17 
 fixed-center = true
 bottom = true
 
@@ -259,7 +259,7 @@ width = 2.35%
 height = 4.1%
 offset-x = 79.65%:-30
 offset-y = 0.75%
-radius = 22
+radius = 17 
 fixed-center = true
 bottom = true
 
@@ -289,10 +289,10 @@ click-left = ~/.config/polybar/scripts/open.sh &
 
 [bar/status]
 width = 16%
-height = 4.3%
+height = 4.1%
 offset-x = 82.0%:-20
 offset-y = 0.65%
-radius = 22
+radius = 17 
 fixed-center = true
 bottom = true
 
@@ -308,8 +308,8 @@ padding-right = 0
 module-margin-left = 1
 module-margin-right = 1
  
-font-0 = BreezeSans:pixelsize=14:style=Medium Condensed;4
-font-1 = Material Design Icons Desktop:pixelsize=21;5
+font-0 = BreezeSans:pixelsize=10:style=Medium Condensed;4
+font-1 = Material Design Icons Desktop:pixelsize=14;4
 font-2 = BreezeSans:pixelsize=10:style=Bold Condensed;3
  
 modules-center = wlan battery bluetooth date 
@@ -324,7 +324,7 @@ width = 2.1%
 height = 3.7%
 offset-x = 97.9%:-10
 offset-y = 0.88%
-radius = 20
+radius = 14
 fixed-center = true
 bottom = true
 
@@ -340,7 +340,7 @@ padding-right = 0
 module-margin-left = 1
 module-margin-right = 1
  
-font-0 = Material Design Icons Desktop:pixelsize=23;6
+font-0 = Material Design Icons Desktop:pixelsize=18;4
  
 modules-center = power-menu 
 
@@ -407,7 +407,7 @@ bar-empty-foreground = #607290
 
 [module/wlan]
 type = internal/network
-interface = wlp58s0
+interface = wlp5s0
 interval = 3.0
 
 format-connected =<ramp-signal>
