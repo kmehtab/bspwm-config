@@ -1,0 +1,37 @@
+#!/bin/sh
+
+ ####################################
+ #           COLOR PALLETE          #
+ ####################################
+
+bold=$(tput bold)
+normal=$(tput sgr0)
+red="\e[1;31m"
+green="\e[1;32m"
+nrm="\e[0m"
+
+ ####################################
+ #          LIST OF ALIASES         #
+ ####################################
+
+alias calc='calc -d'
+#alias clear='clear && hanka.sh'
+alias tb='taskbook'
+alias a='taskbook -t'
+alias c='taskbook -c'
+alias torrent='transmission-remote'
+alias rm='rm -I'
+alias grep='grep --color=auto'
+alias diff='diff --color=auto'
+alias ls='ls --color=auto'
+alias vim='start-vim.sh -w'
+alias vi='start-vim.sh -w'
+alias config='/usr/bin/git --git-dir=$HOME/Documents/Repos/dotfiles/ --work-tree=$HOME'
+alias graph='/usr/bin/git --git-dir=$HOME/Documents/Repos/dotfiles/ --work-tree=$HOME log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"'
+alias checkupdates='\
+echo "${bold}Checking Pacman...${normal}" \
+&& checkupdates || echo -e "${green}󰕥  Up To Date${nrm}";\
+echo "\n${bold}Checking the AUR...${normal}" \
+&& [ -z "$(yay -Qum)" ] \
+&& echo -e "${green}󰕥  Up To Date${nrm}" || yay -Qum ;\
+dunstify -u low "Pacman" "Finished checking for updates."'
