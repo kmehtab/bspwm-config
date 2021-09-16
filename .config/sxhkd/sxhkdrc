@@ -103,17 +103,13 @@ XF86AudioNext
 XF86AudioPlay
 	playerctl play-pause
 
-# Volume up
-XF86AudioRaiseVolume 
-	pactl set-sink-volume 0 +10% ; ~/.config/polybar/scripts/volume.sh
+# Volume up Volume down
+XF86Audio{Raise,Lower}Volume
+    amixer -q set Master 5%{+,-} ; ~/.config/polybar/scripts/volume.sh
 
-# Volume down
-XF86AudioLowerVolume 
-	pactl set-sink-volume 0 -10% ; ~/.config/polybar/scripts/volume.sh
-
-# Volume mute
-XF86AudioMute 
-	pactl set-sink-mute 0 toggle ; ~/.config/polybar/scripts/volume.sh
+#Volume mute
+XF86AudioMute
+    amixer set Master toggle ; ~/.config/polybar/scripts/volume.sh
 
 # Brightness up
 XF86MonBrightnessUp
@@ -121,7 +117,7 @@ XF86MonBrightnessUp
 
 # Brightnes down
 XF86MonBrightnessDown
-	[ $(($(brightnessctl g)-750)) -le "0" ] && brightnessctl set 1% || brightnessctl set 10%- ; ~/.config/polybar/scripts/volume.sh
+	brightnessctl set 10%- ; ~/.config/polybar/scripts/volume.sh
 
 ################################################
 #              APPLICATIONS                    #

@@ -39,6 +39,9 @@ bspc config pointer_action2 		resize_sidie
 
 bspc config external_rules_command $HOME/.config/bspwm/external_rules.sh
 
+#emacs start in tilted
+bspc rule -a Emacs state=tiled
+
 #bspc rule -a Alacritty desktop='^1' follow=on state=pseudo_tiled
 bspc rule -a qutebrowser desktop='^2' 
 bspc rule -a newsboat desktop='^4' follow=on state=pseudo_tiled

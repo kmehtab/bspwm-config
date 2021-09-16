@@ -35,9 +35,9 @@ padding-right = 2
 module-margin-left = 0
 module-margin-right = 1
  
-font-0 = UbuntuMono Nerd Font:pixelsize=14:style=Medium Condensed;5
-font-1 = Material Design Icons Desktop:pixelsize=20;5
-font-2 = UbuntuMono Nerd Font:pixelsize=20:style=Medium Condensed;7
+font-0 = UbuntuMono Nerd Font:pixelsize=10:style=Medium Condensed;3
+font-1 = Material Design Icons Desktop:pixelsize=15;3
+font-2 = UbuntuMono Nerd Font:pixelsize=18:style=Medium Condensed;4
  
 modules-center = xbacklight pulseaudio
 
@@ -388,8 +388,9 @@ label-empty =
 label-empty-padding = 0
 
 [module/xbacklight]
-type = internal/xbacklight
+type = internal/backlight
 
+card = radeon_bl0
 format = <label><bar>
 label = "󰃠 "
 label-foreground = ${colors.background}
@@ -486,7 +487,7 @@ ramp-capacity-framerate = 750
 [module/search]
 type = custom/script
 exec = echo "󰍉"
-click-left = ~/.config/polybar/scripts/search.sh &
+click-left = ~/bspwm-config/.config/rofi/launcher.sh &
 
 [module/file-man]
 type = custom/script

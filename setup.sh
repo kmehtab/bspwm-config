@@ -25,13 +25,13 @@ function linkDotfile {
   ln -s ${dotfilesDir}/${1} ${dest}
 }
 
-linkDotfile bspwm 
-linkDotfile dunst
-linkDotfile lf 
-linkDotfile mpv
-linkDotfile newsboat
-linkDotfile picom
-linkDotfile polybar
-linkDotfile sxhkd
-linkDotfile zathura
-linkDotfile betterlockscreenrc
+linkDotfile .config/bspwm 
+linkDotfile .config/dunst
+linkDotfile .config/lf 
+linkDotfile .config/newsboat
+linkDotfile .config/picom
+linkDotfile .config/polybar
+linkDotfile .config/rofi
+linkDotfile .config/sxhkd
+linkDotfile .config/zathura
+linkDotfile .config/betterlockscreenrc
