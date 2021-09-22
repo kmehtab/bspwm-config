@@ -1,0 +1,27 @@
+(include "./windows/settings-panel/daily.yuck")
+(include "./windows/settings-panel/volume.yuck")
+(include "./windows/settings-panel/brightness.yuck")
+(include "./windows/settings-panel/spotify.yuck")
+(include "./windows/settings-panel/system-menu.yuck")
+
+(defwindow settings-panel
+  :monitor 0
+  :geometry (geometry :x "-10px"
+            :y "-5%"
+            ; :width "30%"
+            ; :height "30px"
+            :anchor "bottom right")
+  :stacking "fg"
+  :reserve (struts :distance "0px" :side "bottom")
+  :windowtype "dock"
+  :wm-ignore false
+  (box
+    :class "settings-panel"
+    :orientation "v"
+    :valign "start"
+    (daily)
+    (volume)
+    (brightness)
+    (spotify)
+    (system-menu)))
+

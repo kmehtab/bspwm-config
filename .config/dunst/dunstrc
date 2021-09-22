@@ -20,12 +20,12 @@
     #   %I  iconname (without its path)
     #   %p  progress value if set ([  0%] to [100%]) or nothing
     # Markup is allowed
-    format = "<span size="x-large"><b> %s</b></span>\n%b"
+    format = "<b> %s</b></span>\n%b"
     
     # Icon settings
     icon_position = left
-    min_icon_size = 172
-    max_icon_size = 172
+    min_icon_size = 70
+    max_icon_size = 100
     icon_folders = ""
 
     # Sort messages by urgency
@@ -69,7 +69,7 @@
     # right side of the screen.  Y is measured from the top and down respectevly.
     # The width can be negative. In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "600x1-20+40"
+    geometry = "600x0-20+40"
 
     notification_height = 100
     shrink = true
@@ -111,10 +111,10 @@
     separator_height = 0
 
     # padding between text and separator
-    padding = 20
+    padding = 8
 
     # horizontal padding
-    horizontal_padding = 20
+    horizontal_padding = 10
 
     # Define a color for the separator.
     # possible values are:
@@ -135,7 +135,7 @@
 
 [frame]
     width = O
-    color = "#FFFFFF"
+    color = "#0b3d91"
 
 [shortcuts]
     # shortcuts are specified as [modifier+][modifier+]...key
@@ -159,9 +159,9 @@
     # Otherwise the '#' and following  would be interpreted as a comment.
 [low]
     msg_urgency = low
-    format = "<span size="x-large">󰦕<b> %s </b></span>\n%b"
-    background = "#FEFEFE"
+    format = "󰦕<b> %s </b></span>\n%b"
     foreground = "#0E0E0E"
+    foreground = "#ffffff"
     timeout = 3
 
 [urgency_normal]
@@ -171,7 +171,7 @@
 
 [critical]
     msg_urgency = critical
-    format = "<span size="x-large">󰚌 <b>%s </b></span>\n<b>ERROR: </b>%b"
+    format = "󰚌 <b>%s </b></span>\n<b>ERROR: </b>%b"
     background = "#ff0041"
     foreground = "#ffffff"
     timeout = 5
@@ -206,40 +206,40 @@
     script = ~/.config/dunst/scripts/discord.sh
 
 [spotify]
-    body = *Spotify*
-    format = "%b\n[ <span font_desc='UbuntuMono Nerd Font 20'><i>%s</i></span> ]"
+    body = Spotify
+    format = "%b\n[ <span font_desc='UbuntuMono Nerd Font 12'><i>%s</i></span> ]"
     background = "#191414"
 
 [bluetooth]
     summary = Bluetooth
-    format = "<span size="x-large">󰂯<b>%s</b></span>\n%b"
+    format = "󰂯<b>%s</b></span>\n%b"
     background = "#1555a0"
 
 [scrot]
     appname = scrot
-    format = "<span size="x-large">📷<b>  %s </b></span>\n<i>%b</i>"
+    format = "📷<b>  %s </b></span>\n<i>%b</i>"
     background = "#7a614d"
 
 [zathura]
     summary = *annotation's
-    format = "<span size="x-large">󰛓<b>  %s </b></span>\n<i>%b</i>"
+    format = "󰛓<b>  %s </b></span>\n<i>%b</i>"
     foreground = "#0f3880"
     background = "#e5efff"
 
 [pacman-S]
     summary = Pacman
     body = *installed*
-    format = "<span size="x-large">󰏗<b> %s </b></span>\n%b"
+    format = "󰏗<b> %s </b></span>\n%b"
     background = "#243577"
 
 [pacman-Rs]
     summary = Pacman
     body = *removed*
-    format = "<span size="x-large">󰆴<b> %s </b></span>\n%b"
+    format = "󰆴<b> %s </b></span>\n%b"
     background = "#c8144c"
 
 [pacman-Syu]
     summary = Pacman
     body = *upgraded*
-    format = "<span size="x-large">󱆢<b> %s </b></span>\n%b"
+    format = "󱆢<b> %s </b></span>\n%b"
     background = "#156142"

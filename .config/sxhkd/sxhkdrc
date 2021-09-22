@@ -1,7 +1,7 @@
 ################################################
 #               WM CONTROLS                    #
 ################################################
-,
+
 # make sxhkd reload its configuration files:
 alt + shift + r
 	pkill -USR1 -x sxhkd && dunstify -r 500 "SXHKD" "config reloaded"
@@ -14,11 +14,17 @@ alt + shift + r
 alt + r
 	bspc wm -r && dunstify -r 500 "BSPWM" "bspwm reloaded"
 
-# close and kill
-super + w
-	bspc node -c
-super + q
-	bspc node -k
+# Quit and restart bspwm
+{super + shift + alt} + q
+    bspc quit
+
+# lockscreen
+super + alt + l
+    betterlockscreen -l dimblur
+
+# Kill the focused window
+super + {w,q}
+    bspc node -{c,k}
 
 # alternate between the tiled and monocle layout
 alt + m
@@ -27,6 +33,14 @@ alt + m
 # swap the current node and the biggest node
 alt + g
 	bspc node -s biggest.local
+
+# Fullscreen window with gaps
+alt + f
+    sh $HOME/.local/bin/tglbar
+
+# Move the focused window
+super + {Left,Down,Up,Right}
+	bspc node -v {-20 0,0 20,0 -20,20 0}
 
 #
 # state/flags
@@ -53,7 +67,7 @@ alt + {_,shift + }c
 	bspc node -f {next,prev}.local.!floating
 
 # focus the next/previous node in the current desktop
-alt + {_,shift + }v
+alt + {_,shift + }n
 	bspc node -f {next,prev}.local.floating
 
 # focus the next/previous desktop in the current monitor
@@ -103,25 +117,22 @@ XF86AudioNext
 XF86AudioPlay
 	playerctl play-pause
 
-# Volume up
-XF86AudioRaiseVolume 
-	pactl set-sink-volume 0 +10% ; ~/.config/polybar/scripts/volume.sh
+# Manage volume
+F6 
+    amixer -q set Master 5%+ ; ~/.config/polybar/scripts/volume.sh
 
-# Volume down
-XF86AudioLowerVolume 
-	pactl set-sink-volume 0 -10% ; ~/.config/polybar/scripts/volume.sh
+F5
+    amixer -q set Master 5%- ; ~/.config/polybar/scripts/volume.sh
 
-# Volume mute
-XF86AudioMute 
-	pactl set-sink-mute 0 toggle ; ~/.config/polybar/scripts/volume.sh
+f7
+    amixer set Master toggle ; ~/.config/polybar/scripts/volume.sh
 
-# Brightness up
-XF86MonBrightnessUp
-	brightnessctl set +10% ; ~/.config/polybar/scripts/volume.sh
-
-# Brightnes down
-XF86MonBrightnessDown
-	[ $(($(brightnessctl g)-750)) -le "0" ] && brightnessctl set 1% || brightnessctl set 10%- ; ~/.config/polybar/scripts/volume.sh
+# Manage brightness
+super + F12
+    brightnessctl set 3%+ ; ~/.config/polybar/scripts/volume.sh
+   
+super + F11
+    brightnessctl set 3%- ; ~/.config/polybar/scripts/volume.sh
 
 ################################################
 #              APPLICATIONS                    #
@@ -132,36 +143,15 @@ super + Return
 	alacritty
 
 # Launcher
+#super + space
+	#sh $HOME/.config/rofi/launcher.sh
+
 super + space
-	sh $HOME/.config/rofi/launcher.sh
+	$HOME/.config/polybar/scripts/search.sh
 
 # Power Menu
 {super + shift} L
 	$HOME/.config/polybar/scripts/power-menu.sh
-
-# Qutebrowser
-{mod5 +,alt + a;}  {_,shift + } q
-	{_,_}{qutebrowser ,bspc desktop -l monocle; qutebrowser --temp-basedir --set content.private_browsing true --config-py "$HOME/.config/qutebrowser/config.py"; bspc desktop -l tiled}
-
-# Spotify
-{mod5 +,alt + a;}  s
-	start-spotify
-
-# Gimp
-{mod5 +,alt + a;}  g
-	gimp
-
-# Newsboat: RSS feed
-{mod5 +,alt + a;}  n
-	start-newsboat.sh &
-
-# Discord
-{mod5 +,alt + a;}  d
-	discord
-
-# Vim - Editor
-{mod5 +,alt + a;}  e
-	start-vim.sh -c
 
 # Scratchpad
 {mod5 +,alt + a;}  a
@@ -178,4 +168,3 @@ super + space
 # Lf: File manager
 {mod5 +,alt + a;}  l
 	toggle-lf.sh
-

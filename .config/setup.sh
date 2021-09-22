@@ -25,22 +25,13 @@ function linkDotfile {
   ln -s ${dotfilesDir}/${1} ${dest}
 }
 
-ln -s ~/.dotfiles/.zshrc ~/.zshrc
-ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
-ln -s ~/.dotfiles/.gitignore ~/.gitignore
-linkDotfile alacritty
-linkDotfile colorls
-linkDotfile nvim
-linkDotfile ranger
-linkDotfile tmux
-linkDotfile doom
 linkDotfile bspwm 
 linkDotfile dunst
 linkDotfile lf 
-linkDotfile mpv
+#linkDotfile mpv
 linkDotfile newsboat
 linkDotfile picom
 linkDotfile polybar
-linkDotfile sxhkd
+#linkDotfile sxhkd
 linkDotfile zathura
 linkDotfile betterlockscreenrc
