@@ -309,7 +309,7 @@ module-margin-left = 1
 module-margin-right = 1
  
 font-0 = BreezeSans:pixelsize=12:style=Medium Condensed;4
-font-1 = Material Design Icons Desktop:pixelsize=18;5
+font-1 = Material Design Icons Desktop:pixelsize=13;4
 font-2 = BreezeSans:pixelsize=10:style=Bold Condensed;3
  
 modules-center = ethernet speed date 
@@ -658,7 +658,7 @@ click-left = ~/.config/polybar/scripts/bluetooth-status.sh -t &
 
 [module/date]
 type = custom/script
-exec =  date '+%a %e %b %H:%M' 
+exec =  date '+%a %e %b %l:%M' 
 interval = 60
 tail=true
 
