@@ -221,10 +221,10 @@ cursor-scroll = default
 click-left = ~/.config/polybar/scripts/close.sh &
 
 [bar/notify]
-width = 10%
+width = 8%
 height = 30 
-offset-x = 72.9%
-offset-y = 0.65%
+offset-x = 75.0%
+offset-y = 0.55%
 radius = 15
 fixed-center = true
 bottom = true
@@ -240,12 +240,11 @@ padding = 0
 module-margin-left = 2
 module-margin-right = 3
  
-font-0 = BreezeSans:pixelsize=8:style=Bold;-10
-font-1 = Material Design Icons Desktop:pixelsize=16;5
-font-2 = BreezeSans:pixelsize=10:style=Light Condensed;10
+font-0 = BreezeSans:pixelsize=8:style=Bold;-6
+font-1 = Material Design Icons Desktop:pixelsize=14;3
+font-2 = BreezeSans:pixelsize=8:style=Bold Condensed;8
 font-3 = Material Design Icons Desktop:pixelsize=10;10
 font-4 = Material Design Icons Desktop:pixelsize=10;-8
-font-5 = icomoon:pixelsize=17;4
 
 modules-center = cpu update news mtorrent
 
@@ -364,16 +363,16 @@ type = internal/bspwm
 reverse-scroll = false
 enable-scroll = false
 
-ws-icon-0 = I;%{A3:alacritty &:}󰆍%{A}
-ws-icon-1 = II;%{F#00c0ff}%{A3:qutebrowser &:}󰇧%{A}%{F-}
-ws-icon-2 = III;%{F#ff004b}%{A3:grep " T " /tmp/mpv-wpf.txt | tail -1 | cut -d' ' -f2| xargs -L1 -I[] xdotool key --window "[]" p &:}󰄘%{A}%{F-}
-ws-icon-3 = IV;%{F#ffca00}%{A3:start-newsboat.sh &:}󰇰%{A}%{F-}
-ws-icon-4 = V;%{F#2944f2}%{A3:start-vim.sh -c &:}󰹻%{A}%{F-}
-ws-icon-5 = VI;%{F#c46a4b}%{A3:zathura &:}󰉨%{A}%{F-}
-ws-icon-6 = VII;%{F#ff93aa}%{A3:gimp &:}󰿁%{A}%{F-}
-ws-icon-7 = VIII;%{F#FF8C00}%{A3:retroarch &:}󰊠%{A}%{F-}
-ws-icon-8 = IX;%{F#d448ff}%{A3:discord &:}󰆉%{A}%{F-}
-ws-icon-9 = X;%{F#05d183}%{A3:start-spotify || playerctl -p spotify play-pause &:}󰫔%{A}%{F-}
+ws-icon-0 = 1;%{A3:alacritty &:}󰆍%{A}
+ws-icon-1 = 2;%{F#00c0ff}%{A3:qutebrowser &:}󰇧%{A}%{F-}
+ws-icon-2 = 3;%{F#ff004b}%{A3:grep " T " /tmp/mpv-wpf.txt | tail -1 | cut -d' ' -f2| xargs -L1 -I[] xdotool key --window "[]" p &:}󰄘%{A}%{F-}
+ws-icon-3 = 4;%{F#ffca00}%{A3:start-newsboat.sh &:}󰇰%{A}%{F-}
+ws-icon-4 = 5;%{F#2944f2}%{A3:start-vim.sh -c &:}󰹻%{A}%{F-}
+ws-icon-5 = 6;%{F#c46a4b}%{A3:zathura &:}󰉨%{A}%{F-}
+ws-icon-6 = 7;%{F#ff93aa}%{A3:gimp &:}󰿁%{A}%{F-}
+ws-icon-7 = 8;%{F#FF8C00}%{A3:retroarch &:}󰊠%{A}%{F-}
+ws-icon-8 = 9;%{F#d448ff}%{A3:discord &:}󰆉%{A}%{F-}
+ws-icon-9 = 0;%{F#05d183}%{A3:start-spotify || playerctl -p spotify play-pause &:}󰫔%{A}%{F-}
 ws-icon-default =%{F#9e43ba}%{A3:<!!>:}󰗹%{A}%{F-}
 
 format = "<label-state>" 
@@ -529,7 +528,7 @@ click-left = ~/.config/polybar/scripts/search.sh &
 [module/file-man]
 type = custom/script
 exec = echo "󰉋"
-click-left = toggle-lf.sh &
+click-left = nemo 
 
 [module/screenshot]
 type = custom/script
@@ -607,7 +606,7 @@ tail = true
 [module/cpu]
 type = custom/script
 exec = ~/.config/polybar/scripts/cpu.sh 2> /dev/null || echo "%{T5}%{F#dae1ec}󰓦%{T4}%{O-13}󰓦%{T-}%{F-}" 
-format-prefix = " "
+format-prefix = "󰻠"
 format-foreground = ${colors.secondary}
 
 interval = 1

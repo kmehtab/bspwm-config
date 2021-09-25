@@ -143,11 +143,11 @@ super + Return
 	alacritty
 
 # Launcher
-#super + space
-	#sh $HOME/.config/rofi/launcher.sh
-
 super + space
-	$HOME/.config/polybar/scripts/search.sh
+	sh $HOME/.config/rofi/launcher.sh
+
+#super + space
+	#$HOME/.config/polybar/scripts/search.sh
 
 # Power Menu
 {super + shift} L
