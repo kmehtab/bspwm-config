@@ -18,6 +18,9 @@ window {
   background-color: transparent;
 }
 
+button:hover {
+    color: #89B8C2;
+}
 .settings-panel {
   background-color: $background-dark;
 }
@@ -116,7 +119,6 @@ window {
 
 
 .system-menu-icon {
-  all: unset;
   font-weight: bold;
   background-color: transparent;
   border-radius: inherit;

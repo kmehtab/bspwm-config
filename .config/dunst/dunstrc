@@ -243,3 +243,5 @@
     body = *upgraded*
     format = "󱆢<b> %s </b></span>\n%b"
     background = "#156142"
+
+# vim: ft=cfg
