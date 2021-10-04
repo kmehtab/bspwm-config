@@ -74,7 +74,7 @@ bspc rule -a Emacs state=tiled
 	# && cid=$(wmctrl -lx | grep calc.scratchpad| cut -d' ' -f1| head -1) \
 	# && echo "$cid" > /tmp/calcID ;
 
-LF
+# LF
 # lid=$(wmctrl -lx | grep lf.lf| cut -d' ' -f1| head -1) \
 # && [ -z "$(echo $lid)" ] \
 	# && alacritty --config-file .config/alacritty/lf.yml -t lf --class lf,lf -d 75 16 -e startlf \

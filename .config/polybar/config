@@ -71,6 +71,47 @@ font-2 = BreezeSans:pixelsize=10:style=Bold Condensed;3
  
 modules-center = search screenshot file-man 
 
+; tray-detached = true
+; tray-offset-x = -5
+; tray-offset-y = 0
+; tray-padding = 2
+; tray-maxsize = 20px
+; tray-scale = 1.0
+; tray-position = right 
+; tray-background = ${colors.background}
+; wm-restack = bspwm
+
+scroll-up = bspwm-desknext
+scroll-down = bspwm-deskprev
+
+cursor-click = pointer
+cursor-scroll = default
+
+[bar/tray]
+width = 3.8%
+height = 30 
+offset-x = 70.3%:10
+offset-y = 0.65%
+radius = 15
+fixed-center = true
+bottom = true
+
+background = ${colors.background-alt}
+foreground = ${colors.foreground}
+
+border-size = 0
+border-color = #000
+
+padding-left = 0
+padding-right = 0
+
+module-margin-left = 0
+module-margin-right = 0
+ 
+font-0 = BreezeSans:pixelsize=10 Condensed;2
+ 
+modules-center = tray 
+
 tray-detached = true
 tray-offset-x = -5
 tray-offset-y = 0
@@ -78,7 +119,7 @@ tray-padding = 2
 tray-maxsize = 20px
 tray-scale = 1.0
 tray-position = right 
-tray-background = ${colors.background}
+tray-background = ${colors.background-alt}
 wm-restack = bspwm
 
 scroll-up = bspwm-desknext
@@ -198,7 +239,7 @@ cursor-click = pointer
 [bar/close]
 width = 30
 height = 30
-offset-x = 73% 
+offset-x = 69% 
 offset-y = 0.65%
 radius = 15
 fixed-center = true
@@ -315,7 +356,7 @@ padding-right = 0
 module-margin-left = 1
 module-margin-right = 1
  
-font-0 = BreezeSans:pixelsize=12:style=Medium Condensed;4
+font-0 = BreezeSans:pixelsize=11:style=Medium Condensed;4
 font-1 = Material Design Icons Desktop:pixelsize=13;4
 font-2 = BreezeSans:pixelsize=10:style=Bold Condensed;3
  
@@ -527,6 +568,10 @@ ramp-capacity-9 = 󰂂
 ramp-capacity-10 = 󰁹 
 ramp-capacity-foreground = ${colors.foreground-alt}
 ramp-capacity-framerate = 750
+
+[module/tray]
+type = custom/script
+exec = echo "tray"
 
 [module/search]
 type = custom/script
