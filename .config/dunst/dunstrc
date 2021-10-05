@@ -136,4 +136,10 @@
     format = "󱆢<b> %s </b></span>\n%b"
     background = "#156142"
 
+[notification-panel]
+  appname = "*"
+  summary = "*"
+  urgency = ""
+  script = "~/.local/scripts/save_notification.py"
+
 # vim: ft=cfg

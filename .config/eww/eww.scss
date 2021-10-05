@@ -131,10 +131,12 @@ button:hover {
 .notifications {
   background-color: $background-dark;
   padding: 15px 0;
+  color: #fff;
 }
 
 .notification-wrapper {
-  background-color: $gray-1;
+  background-color: $background;
+  // background-color: #30445c;
   margin: 5px 10px;
   padding: 5px;
   border-radius: 4px;
@@ -147,13 +149,14 @@ button:hover {
 
 .notification-title {
   margin: 0 4px;
-  font-size: 23px;
-  font-weight: bold;
+  font-size: 18px;
+  // font-weight: bold;
 }
 
-.notification-wrapper:nth-child(2n) {
-  background-color: $gray-2;
-}
+// .notification-wrapper:nth-child(2n) {
+  // background-color: $gray-2;
+  // background-color: #2c3856;
+// }
 
 .notification-toggle {
   background-color: transparent;
@@ -176,6 +179,6 @@ button:hover {
 
 .notifications-empty {
   margin: 10px 0;
-  font-size: 24px;
+  font-size: 18px;
 }
 

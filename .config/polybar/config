@@ -45,7 +45,7 @@ override-redirect = true
 enable-ipc = true
 
 [bar/control]
-width = 6%
+width = 5.7%
 height = 30 
 offset-x = 0%:10
 offset-y = 0.65%
@@ -66,7 +66,7 @@ module-margin-left = 2
 module-margin-right = 2
  
 font-0 = BreezeSans:pixelsize=14:style=Medium Condensed;4
-font-1 = Material Design Icons Desktop:pixelsize=18;5
+font-1 = Material Design Icons Desktop:pixelsize=16;4
 font-2 = BreezeSans:pixelsize=10:style=Bold Condensed;3
  
 modules-center = search screenshot file-man 
@@ -270,7 +270,7 @@ cursor-scroll = default
 click-left = ~/.config/polybar/scripts/close.sh &
 
 [bar/notify]
-width = 8%
+width = 7%
 height = 30 
 offset-x = 75.0%
 offset-y = 0.55%
@@ -295,7 +295,7 @@ font-2 = BreezeSans:pixelsize=8:style=Bold Condensed;8
 font-3 = Material Design Icons Desktop:pixelsize=10;10
 font-4 = Material Design Icons Desktop:pixelsize=10;-8
 
-modules-center = cpu update news mtorrent
+modules-center = cpu update news
 
 wm-restack = bspwm
 
@@ -305,7 +305,7 @@ cursor-scroll = default
 [bar/open]
 width = 30
 height = 30
-offset-x = 81.5%
+offset-x = 80.9%
 offset-y = 0.65%
 radius = 15
 fixed-center = true
@@ -336,9 +336,9 @@ cursor-scroll = default
 click-left = ~/.config/polybar/scripts/open.sh &
 
 [bar/status]
-width = 14%
+width = 13%
 height = 30
-offset-x = 83.5%
+offset-x = 82.7%
 offset-y = 0.65%
 radius = 15
 fixed-center = true
@@ -368,9 +368,9 @@ cursor-click = pointer
 cursor-scroll = default
 
 [bar/power]
-width = 31
+width = 71
 height = 31 
-offset-x = 98%
+offset-x = 96%
 offset-y = 0.65%
 radius = 16
 fixed-center = true
@@ -394,7 +394,7 @@ font-1 = "FiraCode Nerd Font:size=10;2"
 font-2 = "LXGW WenKai:size=10;2"
 font-3 = "Material Design Icons Desktop:pixelsize=10;2"
  
-modules-center = panel 
+modules-center = panel notifications
 
 wm-restack = bspwm
 
@@ -724,8 +724,19 @@ exec = echo "󰐥 "
 type = custom/script
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
-exec = echo "︁"
+exec = echo "︁ "
 click-left = eww windows | grep '*' || eww open-many close-me settings-panel
+format-padding = 0
+format-margin = 0
+format-offset = 0
+
+[module/notifications]
+type = custom/script
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+exec = echo " ︁"
+label = %{T1}%output%%{T-}
+click-left = "eww windows | grep '*' || eww open-many close-me notifications"
 format-padding = 0
 format-margin = 0
 format-offset = 0
