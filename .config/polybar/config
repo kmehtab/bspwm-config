@@ -79,7 +79,8 @@ modules-center = search screenshot file-man
 ; tray-scale = 1.0
 ; tray-position = right 
 ; tray-background = ${colors.background}
-; wm-restack = bspwm
+
+ wm-restack = bspwm
 
 scroll-up = bspwm-desknext
 scroll-down = bspwm-deskprev
