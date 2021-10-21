@@ -38,16 +38,12 @@ alt + g
 alt + f
     sh $HOME/.local/bin/tglbar
 
-# Move the focused window
-super + {Left,Down,Up,Right}
-	bspc node -v {-20 0,0 20,0 -20,20 0}
-
 #
 # state/flags
 #
 
 # set the window state
-alt + {t,shift + t,s,f}
+super + {t,shift + t,s,f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
 # set the node flags
@@ -63,27 +59,16 @@ super + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
 
 # focus the next/previous node in the current desktop
-alt + {_,shift + }c
-	bspc node -f {next,prev}.local.!floating
-
-# focus the next/previous node in the current desktop
 alt + {_,shift + }n
-	bspc node -f {next,prev}.local.floating
-
-# focus the next/previous desktop in the current monitor
-alt + {i,o}
-	bspc desktop -f {prev,next}.occupied && bspc node -f newest.local.!floating
-
-alt + shift + {i,o}
-	bspc desktop -f {prev,next} && bspc node -f newest.local.!floating
+    bspc node -f {next,prev}.local.!hidden.window
 
 # focus the last desktop
 alt + Tab
 	bspc desktop -f last.occupied && bspc node -f newest.local.!floating
 
-# focus or send to the given desktop
+# Move to or send window to workspace #
 super + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}' && bspc node -f newest.local.!floating
+	bspc {desktop -f,node -d} '^{1-9,10}'
 
 #
 # move/resize
@@ -100,6 +85,24 @@ alt + shift + {h,j,k,l}
 # move a floating window
 alt + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+# Add focused window to a tabbed instance
+super + t; {h,j,k,l}
+    tabc $(bspc query -N -n {west,south,north,east}) add $(bspc query -N -n focused)
+    
+# Remove the focused window from a tabbed instance
+super + t; r
+    tabbed=$(bspc query -N -n focused); \
+    child=$(tabc list $tabbed | head -n1); \
+    tabc $tabbed remove $child
+
+# Set new window orientation
+super + ctrl + {h,j,k,l}
+	bspc node -p {west,south,north,east}
+
+# Cancel the new window orientation
+super + ctrl + space
+	bspc node -p cancel
 
 ################################################
 #               MEDIA KEYS                     #
@@ -118,14 +121,14 @@ XF86AudioPlay
 	playerctl play-pause
 
 # Manage volume
-F6 
+F5 
     amixer -q set Master 5%+ ; ~/.config/polybar/scripts/volume.sh
 
-F5
+F6
     amixer -q set Master 5%- ; ~/.config/polybar/scripts/volume.sh
 
 f7
-    amixer set Master toggle ; ~/.config/polybar/scripts/volume.sh
+    amixer -q set Master toggle ; ~/.config/polybar/scripts/volume.sh
 
 # Manage brightness
 super + F12
@@ -138,33 +141,48 @@ super + F11
 #              APPLICATIONS                    #
 ################################################
 
-# Alacritty
+# alacritty
 super + Return
-	alacritty
+    alacritty 
 
-# Launcher
-super + space
-	sh $HOME/.config/rofi/launcher.sh
+# emacs
+super + shift + Return
+    emacs 
 
-#super + space
-	#$HOME/.config/polybar/scripts/search.sh
+# launcher
+super + space 
+   sh $HOME/.config/rofi/launcher.sh 
 
-# Power Menu
-{super + shift} L
-	$HOME/.config/polybar/scripts/power-menu.sh
+super + shift + f
+  firefox
 
-# Scratchpad
-{mod5 +,alt + a;}  a
-	sid=$(cat /tmp/scratchID);\
-	cid=$(cat /tmp/calcID);\
-	wmctrl -ir $sid -b toggle,hidden && wmctrl -ir $cid -b add,hidden; wmctrl -ia $sid	
+super + d
+   sh $HOME/.config/polybar/scripts/search.sh 
 
-# Calc
-{mod5 +,alt + a;}  c
-	cid=$(cat /tmp/calcID);\
-	sid=$(cat /tmp/scratchID);\
-	wmctrl -ir $cid -b toggle,hidden && wmctrl -ir $sid -b add,hidden; wmctrl -ia $cid
+super + p
+		rofi-pass
 
-# Lf: File manager
-{mod5 +,alt + a;}  l
-	toggle-lf.sh
+# super + c 
+	# clipmenu
+# super + c
+	# clipmenu -b -y 7 -x 180 -i -h 46 -w 500 -sb "#111111" -nb "#dae1ec" -nf "#000000" -fn "BreezeSans-14" -o 0.7
+
+super + c
+	rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
+
+# Toggle eww dashboard
+alt + d
+    sh $HOME/.local/bin/dshbrd
+
+# Screenshot
+# Save to local storage
+Print
+    DATE=$(date '+%b%d-%H-%M.png'); \
+    maim --select "$HOME/Pictures/Screenshots/$DATE"; \
+    sh ~/.local/bin/viewscr ~/Pictures/Screenshots/$DATE | xclip -selection clipboard -t image/png
+
+# Upload to CDN
+super + Print
+    DATE=$(date '+%b%d-%H-%M.png'); \
+    maim --select "$HOME/Pictures/Screenshots/$DATE"; \
+    sh ~/.local/bin/upldscr $HOME/Pictures/Screenshots/$DATE
