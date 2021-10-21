@@ -306,7 +306,7 @@ cursor-scroll = default
 [bar/open]
 width = 30
 height = 30
-offset-x = 80.9%
+offset-x = 80.5%
 offset-y = 0.65%
 radius = 15
 fixed-center = true
@@ -337,9 +337,9 @@ cursor-scroll = default
 click-left = ~/.config/polybar/scripts/open.sh &
 
 [bar/status]
-width = 13%
+width = 14.3%
 height = 30
-offset-x = 82.7%
+offset-x = 82.2%
 offset-y = 0.65%
 radius = 15
 fixed-center = true
@@ -360,6 +360,7 @@ module-margin-right = 1
 font-0 = BreezeSans:pixelsize=11:style=Medium Condensed;4
 font-1 = Material Design Icons Desktop:pixelsize=13;4
 font-2 = BreezeSans:pixelsize=10:style=Bold Condensed;3
+font-3 = UbuntuMono Nerd Font Mono:pixelsize=16:style=Medium Condensed;7
  
 modules-center = ethernet speed date 
 
@@ -369,9 +370,9 @@ cursor-click = pointer
 cursor-scroll = default
 
 [bar/power]
-width = 71
-height = 31 
-offset-x = 96%
+width = 60
+height = 30 
+offset-x = 96.7%
 offset-y = 0.65%
 radius = 16
 fixed-center = true
@@ -709,9 +710,23 @@ interval = 0.5
 tail = true
 click-left = ~/.config/polybar/scripts/bluetooth-status.sh -t &
 
+[module/pulseaudio-control]
+type = custom/script
+tail = true
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+
+exec = pulseaudio-control --icons-volume ",  , " --icon-muted " " --format '$VOL_ICON $VOL_LEVEL %' listen
+click-right = exec pavucontrol &
+click-left = pulseaudio-control togmute
+click-middle = pulseaudio-control --sink-blacklist "alsa_output.pci-0000_01_00.1.hdmi-stereo-extra2" next-sink
+scroll-up = pulseaudio-control --volume-max 100 up
+scroll-down = pulseaudio-control --volume-max 100 down
+
 [module/date]
 type = custom/script
 exec =  date '+%a %e %b %l:%M' 
+; exec =  date '+%a %e %l:%M' 
 interval = 60
 tail=true
 

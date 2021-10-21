@@ -10,6 +10,7 @@ newsboat -x reload &
 pgrep bspswallow || $HOME/.local/bin/bspswallow &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 mpd &
+greenclip daemon & 
 xiccd &
 nitrogen --restore
 source $HOME/.config/env
