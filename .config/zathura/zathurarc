@@ -42,3 +42,5 @@ set selection-clipboard clipboard
 map <C-n> feedkeys "o<BackSpace><BackSpace><BackSpace><BackSpace><BackSpace>exec znotes.sh $FILE <Return>"
 map <C-e> feedkeys "o<BackSpace><BackSpace><BackSpace><BackSpace><BackSpace>exec znotes.sh -e $FILE <Return>"
 map <C-v> feedkeys "o<BackSpace><BackSpace><BackSpace><BackSpace><BackSpace>exec znotes.sh -v $FILE <Return>"
+
+# vim: ft=cfg

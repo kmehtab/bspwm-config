@@ -1,14 +1,5 @@
-/*
- *
- * Author  : Aditya Shakya
- * Mail    : adi1090x@gmail.com
- * Github  : @adi1090x
- * Twitter : @adi1090x
- *
- */
-
 configuration {
-	font:						      "Noto Sans 11";	
+    font: 							"FiraCode Nerd Font 11";
     show-icons:                     true;
 	icon-theme: 					"Papirus";
     display-drun: 					"";
@@ -20,9 +11,9 @@ configuration {
 }
 
 * {
-    background:                     #00000088;
+    background:                     #0e182788;
     background-alt:              	#00000000;
-    background-bar:                 #f2f2f215;
+    background-bar:                 #9ac4ff15;
     foreground:                     #f2f2f2EE;
     accent:			            	#3DAEE966;
 }
@@ -34,7 +25,7 @@ window {
 	border:							0px;
 	border-color:					@border;
     border-radius:                  0px;
-	width:							40%;
+	width:							35%;
     location:                       center;
     x-offset:                       0;
     y-offset:                       0;
@@ -104,7 +95,7 @@ element-icon {
     text-color:       				inherit;
     horizontal-align:               0.5;
     vertical-align:                 0.5;
-    size:                           48px;
+    size:                           38px;
     border:                         0px;
 }
 
@@ -124,4 +115,3 @@ element selected {
     border-radius:                  12px;
     border-color:                  	@accent;
 }
-

@@ -28,10 +28,10 @@ function linkDotfile {
 linkDotfile bspwm 
 linkDotfile dunst
 linkDotfile lf 
-linkDotfile mpv
+linkDotfile eww 
 linkDotfile newsboat
 linkDotfile picom
 linkDotfile polybar
-linkDotfile sxhkd
+#linkDotfile sxhkd
 linkDotfile zathura
 linkDotfile betterlockscreenrc
