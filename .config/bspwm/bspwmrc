@@ -13,6 +13,7 @@ mpd &
 greenclip daemon & 
 xiccd &
 nitrogen --restore
+emacs --daemon &
 source $HOME/.config/env
 
 bspc monitor -d 1 2 3 4 5 6 7 8 9 0
@@ -35,19 +36,19 @@ bspc config pointer_modifier 		control
 bspc config pointer_action1 		move
 bspc config pointer_action2 		resize_sidie
 
-bspc config external_rules_command $HOME/.config/bspwm/external_rules.sh
+# bspc config external_rules_command $HOME/.config/bspwm/external_rules.sh
 
 #emacs start in tilted
-bspc rule -a Emacs state=tiled
+bspc rule -a Emacsclient state=tiled desktop='^1'
 #bspc rule -a Alacritty desktop='^1' follow=on state=pseudo_tiled
-# bspc rule -a qutebrowser desktop='^2' 
+bspc rule -a brave desktop='^2' 
 # bspc rule -a newsboat desktop='^4' follow=on state=pseudo_tiled
 # bspc rule -a Vim desktop='^5' follow=on state=pseudo_tiled
 # bspc rule -a Zathura desktop='^6' follow=on state=pseudo_tiled
 # bspc rule -a Sxiv desktop='^6' follow=off 
 # bspc rule -a Gimp desktop='^7' state=floating 
 # bspc rule -a discord desktop='^9' follow=off  
-# bspc rule -a Spotify desktop='^10' follow=off state=pseudo_tiled
+bspc rule -a Spotify desktop='^10' follow=off state=pseudo_tiled
 
 # bspc rule -a mpv focus=off state=floating
 # bspc rule -a scratchpad locked=on sticky=on state=floating hidden=on

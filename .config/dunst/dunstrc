@@ -18,7 +18,7 @@
     icon_folders = ""
     sort = yes
     indicate_hidden = false
-    alignment = center
+	  alignment = left
     vertical_alignment = top
     bounce_freq = 0
     show_age_threshold = -1
@@ -33,10 +33,11 @@
     monitor = 0
     follow = keyboard
     sticky_history = yes
-    line_height = 8
+    # line_height = 8
     separator_height = 2
     padding = 0
     horizontal_padding = 10
+    frame_width = 1
     separator_color = frame
     startup_notification = true
 	  # Always run rule-defined scripts, even if the notification is suppressed
@@ -91,8 +92,7 @@
 
 [spotify]
 	  appname = Spotify*
-    format = "%b\n[ <span font_desc='ubuntumono nerd font 12'><i>%s</i></span> ]"
-	  # format = "<b> Now Playing:</b>\n%s\n%b"
+    format = "<b> Now Playing:</b>\n%s\n%b"
     background = "#191414"
 
 [ncmpcpp]
