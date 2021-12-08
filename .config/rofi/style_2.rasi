@@ -1,3 +1,4 @@
+
 * {
     font: 							"FiraCode Nerd Font 12";
     fixed-num-lines: 				true;
@@ -6,13 +7,14 @@
     scroll-method: 					0;
     window-format: 					"[{w}] ··· {c} ···   {t}";
     click-to-exit: 					true;
-    /* combi-hide-mode-prefix: 		false; */
-    /* display-window: 				""; */
-    /* display-windowcd: 				""; */
-    /* display-run: 					""; */
-    /* display-ssh: 					""; */
-    /* display-drun: 					""; */
-    /* display-combi: 					""; */
+    combi-hide-mode-prefix: 		false;
+    display-window: 				"";
+    display-windowcd: 				"";
+    display-run: 					"";
+    display-ssh: 					"";
+    display-drun: 					"";
+    display-combi: 					"";
+    display-clipboard: 					"";
 
     al:      #00000000;
     bg:      #0e182755;
@@ -60,6 +62,24 @@ inputbar {
 	border-color:					@accent;
     margin:                         0% 0% 0% 0%;
     padding:                        1%;
+    children:   [ prompt, textbox-prompt-sep, entry, case-indicator ];
+}
+
+case-indicator,
+entry,
+prompt,
+button {
+    spacing:    0;
+    text-color: @fg;
+    background-color:               @al;
+}
+
+textbox-prompt-sep {
+    expand:     false;
+    str:        ":";
+    text-color: @fg;
+    margin:     0 0.3em 0 0;
+    background-color:               @al;
 }
 
 mainbox {

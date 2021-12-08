@@ -164,11 +164,10 @@ super + Return
 super + space
 	sh $HOME/.config/rofi/launcher.sh
 
-
 super + p
 		rofi-pass
 
-super + c 
+super + c
 	rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
 
 #super + space

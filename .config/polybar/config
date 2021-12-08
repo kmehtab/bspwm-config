@@ -545,7 +545,7 @@ tail = true
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 
-exec = pulseaudio-control --icons-volume ",  , " --icon-muted " " --format '%{F#9ac4ff}$VOL_ICON%{F-} %{T3}$VOL_LEVEL%%{T-}' listen
+exec = pulseaudio-control --icons-volume ",  , " --icon-muted " " --format '%{F#9ac4ff}$VOL_ICON%{F-} %{T3}$VOL_LEVEL%{T-}' listen
 click-right = exec pavucontrol &
 click-left = pulseaudio-control togmute
 click-middle = pulseaudio-control --sink-blacklist "alsa_output.pci-0000_01_00.1.hdmi-stereo-extra2" next-sink
