@@ -22,9 +22,13 @@ alt + r
 super + alt + l
     betterlockscreen -l dimblur
 
-# Kill the focused window
-super + {w,q}
-    bspc node -{c,k}
+# close the focused window
+super + q
+    bspc node -c
+
+# kill the focused window
+super + {_,shift + }q
+    bspc node -k
 
 # alternate between the tiled and monocle layout
 alt + m
@@ -162,11 +166,6 @@ super + d
 super + p
 		rofi-pass
 
-# super + c 
-	# clipmenu
-# super + c
-	# clipmenu -b -y 7 -x 180 -i -h 46 -w 500 -sb "#111111" -nb "#dae1ec" -nf "#000000" -fn "BreezeSans-14" -o 0.7
-
 super + c
 	rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
 
@@ -186,3 +185,7 @@ super + Print
     DATE=$(date '+%b%d-%H-%M.png'); \
     maim --select "$HOME/Pictures/Screenshots/$DATE"; \
     sh ~/.local/bin/upldscr $HOME/Pictures/Screenshots/$DATE
+
+# Scratchpad
+super + a
+  tdrop -ma -w -9 -x 4 -y 4 -s dropdown alacritty
