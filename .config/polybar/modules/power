@@ -1,0 +1,22 @@
+[module/panel]
+type = custom/script
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+exec = echo "︁ "
+click-left = eww windows | grep '*' || eww open-many close-me settings-panel
+format-padding = 0
+format-margin = 0
+format-offset = 0
+
+[module/notifications]
+type = custom/script
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+exec = echo " ︁"
+label = %{T1}%output%%{T-}
+click-left = "eww windows | grep '*' || eww open-many close-me notifications"
+format-padding = 0
+format-margin = 0
+format-offset = 0
+
+; vim:ft=dosini

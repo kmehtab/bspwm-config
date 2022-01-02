@@ -1,5 +1,5 @@
 [global]
-    font = BreezeSans 14
+    font = BreezeSans 12
     allow_markup = yes
     markup = full
     # The format of the message. Possible variables are:
@@ -19,15 +19,15 @@
     sort = yes
     indicate_hidden = false
 	  alignment = left
-    vertical_alignment = top
+    vertical_alignment = center 
     bounce_freq = 0
     show_age_threshold = -1
     hide_duplicates_count = true
     word_wrap = yes
     ignore_newline = no
-    geometry = "300x10-10+10"
+    geometry = "300x10-10-50"
     # notification_height = 100
-    shrink = true
+    shrink = no 
     transparency = 18
     idle_threshold = 120
     monitor = 0
@@ -49,7 +49,7 @@
 
 [frame]
     width = o
-    color = "#0b3d91"
+    color = "#0D335D"
 
 [shortcuts]
     # close notification
@@ -70,7 +70,7 @@
     timeout = 3
 
 [urgency_normal]
-    background = "#0b3d91"
+    background = "#1c2c43"
     foreground = "#ffffff"
     timeout = 5
 
