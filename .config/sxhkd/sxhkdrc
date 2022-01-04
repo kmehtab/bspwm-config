@@ -157,8 +157,8 @@ super + shift + Return
 super + space 
    sh $HOME/.config/rofi/launcher.sh 
 
-super + shift + f
-  firefox
+super + shift + b
+ google-chrome-stable 
 
 super + d
    sh $HOME/.config/polybar/scripts/search.sh 
@@ -175,16 +175,16 @@ alt + d
 
 # Screenshot
 # Save to local storage
+# Print
+#     DATE=$(date '+%b%d-%H-%M.png'); \
+#     maim --select "$HOME/Pictures/Screenshots/$DATE"; \
+#     sh ~/.local/bin/viewscr ~/Pictures/Screenshots/$DATE | xclip -selection clipboard -t image/png
 Print
-    DATE=$(date '+%b%d-%H-%M.png'); \
-    maim --select "$HOME/Pictures/Screenshots/$DATE"; \
-    sh ~/.local/bin/viewscr ~/Pictures/Screenshots/$DATE | xclip -selection clipboard -t image/png
+  image=$(date +Screenshot_at_%H%M.%d%m%Y).png && maim -s -s -b 5.0 -p -5 -c 1,0,0.294 "$HOME/Pictures/Screenshots/$image" && dunstify -r "991030" "Say cheese..." "$image" -a scrot
 
 # Upload to CDN
 super + Print
-    DATE=$(date '+%b%d-%H-%M.png'); \
-    maim --select "$HOME/Pictures/Screenshots/$DATE"; \
-    sh ~/.local/bin/upldscr $HOME/Pictures/Screenshots/$DATE
+  scrot "$(date +Screenshot_at_%H%M.%d%m%Y).png" -e 'mv "$f" ~/Pictures/Screenshots/ && dunstify -r "991030" "Say cheese..." "$f" -a scrot' &
 
 # Scratchpad
 super + a

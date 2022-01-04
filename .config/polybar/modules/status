@@ -27,7 +27,7 @@ unknown-as-up = true
 
 format-connected = <label-connected>
 format-connected-background = ${color.alt-bg}
-format-connected-foreground = ${colors.foreground-alt}
+format-connected-foreground = ${colors.secondary}
 format-connected-padding = 0
  
 format-disconnected = <label-disconnected>
@@ -46,7 +46,7 @@ interval = 1.0
 label-connected = " %downspeed%  %upspeed%"
 #label-connected-width = 50
 label-disconnected = 
-label-connected-foreground = ${colors.foreground-alt} 
+label-connected-foreground = ${colors.secondary} 
 #label-connected-background = ${color.alt-bg} 
 
 
