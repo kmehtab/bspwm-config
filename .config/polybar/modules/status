@@ -36,8 +36,14 @@ format-disconnected-foreground = ${color.red}
 format-disconnected-padding = 0
 
 #label-connected = %essid%
-label-connected = "󰈀" 
-label-disconnected = "Disconnected"
+label-connected = "󰛳" 
+label-disconnected = "󰲛"
+
+[module/onlinestatus]
+type = custom/script
+exec = polybar-onlinestatus
+tail = true
+label = %{T4} %output% %{T-}
 
 [module/speed]
 type = internal/network
@@ -46,9 +52,8 @@ interval = 1.0
 label-connected = " %downspeed%  %upspeed%"
 #label-connected-width = 50
 label-disconnected = 
-label-connected-foreground = ${colors.secondary} 
+label-connected-foreground = ${colors.foreground} 
 #label-connected-background = ${color.alt-bg} 
-
 
 [module/battery]
 type = internal/battery
