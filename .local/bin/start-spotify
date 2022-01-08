@@ -1,7 +1,19 @@
-#!/bin/sh
+#!/bin/bash
 
-[ -z "$(wmctrl -l | cut -d' ' -f1| xargs -L1 xclass| grep "Spotify")" ] \
-	&& (polybar player &) \
-	&& (LD_PRELOAD=/usr/lib/libcurl.so.3:/usr/lib/spotifywm.so spotify 2> /dev/null 2>&1)\
-	&& (xdo kill -N 'Spotify' ; xdo kill -a 'polybar-player_eDP1') \
-	|| exit 1
+running=$(pidof -x $0)
+
+if [[ $(echo $running | wc -w) -ge 2 ]] ; then
+	dunstify -r "991069" "Spotify" "is already running"
+	exit 1
+fi
+
+while ! pgrep polybar;do sleep 1; done
+
+polybar player &
+spotify &
+SPOTIFY=$!
+
+wait $SPOTIFY
+
+xdo kill -a "polybar-player_eDP-1"
+kill -- -$SPOTIFY || pkill spotify
