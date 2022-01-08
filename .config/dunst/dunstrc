@@ -15,13 +15,14 @@
     icon_position = left
 	  min_icon_size = 26
 	  max_icon_size = 96
+    icon_path = /usr/share/icons/Nord-Icon/48x48/status/:/usr/share/icons/Nord-Icon/48x48/devices/:/usr/share/icons/Nord-Icon/48x48/apps
     icon_folders = ""
     sort = yes
     indicate_hidden = false
 	  alignment = left
     vertical_alignment = center 
     bounce_freq = 0
-    show_age_threshold = -1
+    show_age_threshold = 60
     hide_duplicates_count = true
     word_wrap = yes
     ignore_newline = no
@@ -32,7 +33,9 @@
     idle_threshold = 120
     monitor = 0
     follow = keyboard
+    ### History ###
     sticky_history = yes
+    history_length = 20
     # line_height = 8
     separator_height = 2
     padding = 0
@@ -43,25 +46,31 @@
 	  # Always run rule-defined scripts, even if the notification is suppressed
 	  always_run_script = true
 	  corner_radius = 10
-    # dmenu path
-    dmenu = /usr/bin/dmenu -p dunst:
-    browser=/usr/bin/qutebrowser
+
+    ### Misc/Advanced ###
+    dmenu = /usr/bin/urxvt -e fzf:
+    browser = /usr/bin/linkhandler
+    always_run_script = false
+    title = Dunst
+    class = Dunst
+    startup_notification = true
+    force_xinerama = false
 
 [frame]
     width = o
     frame_color = "#0D335D"
 
-[shortcuts]
-    # close notification
-    close = twosuperior
-    # close all notifications
-    close_all = mod4+shift+m
-    # redisplay last message(s)
-    history = mod4+n
-    # context menu
-    context = mod4+shift+i
-    # important: colors have to be defined in quotation marks.
-    # otherwise the '#' and following  would be interpreted as a comment.
+# [shortcuts]
+#     # close notification
+#     close = twosuperior
+#     # close all notifications
+#     close_all = mod4+shift+m
+#     # redisplay last message(s)
+#     history = mod4+n
+#     # context menu
+#     context = mod4+shift+i
+#     # important: colors have to be defined in quotation marks.
+#     # otherwise the '#' and following  would be interpreted as a comment.
 [low]
     msg_urgency = low
     format = "󰦕<b> %s </b></span>\n%b"
@@ -143,4 +152,15 @@
   urgency = ""
   script = "~/.local/scripts/save_notification.py"
 
-# vim: ft=cfg
+[log_notifs]
+    script = ~/.local/bin/dunst_logger.sh
+
+[dunstify_icon]
+    appname = dunstify
+    new_icon = /usr/share/icons/Nord-Icon/48x48/apps/bell.svg
+
+[notify_send_icon]
+    appname = notify-send
+    new_icon = /usr/share/icons/Nord-Icon/48x48/apps/bell.svg
+
+# vim: ft=conf

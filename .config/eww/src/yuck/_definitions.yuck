@@ -1,0 +1,72 @@
+(defwindow outer-window 
+    :geometry (geometry :x "84%"
+                        :y "29%"
+                        :width "305px"
+                        :height "67%")
+    (outer-window))
+(defwindow profile 
+    :geometry (geometry :x "85%" 
+                        :y "30%"
+                        :width "270px" 
+                        :height "240px")
+    (profile))
+(defwindow layout-manager 
+    :geometry (geometry :x "85%"
+                        :y "44%"
+                        :width "270px"
+                        :height "90px")
+    (layout-manager))
+(defwindow line 
+    :geometry (geometry :x "85%"
+                        :y "51%"
+                        :width "270px"
+                        :height "2px")
+    (line))
+(defwindow system-manager 
+    :geometry (geometry :x "85%"
+                        :y "53%"
+                        :width "120px"
+                        :height "173px")
+    (system-manager))
+(defwindow music-player
+    :geometry (geometry :x "85%"
+                        :y "73%"
+                        :width "270px" 
+                        :height "150px")
+    (music-player))
+(defwindow music-info
+    :geometry (geometry :x "84%"
+                        :y "82%" 
+                        :width "133px" 
+                        :height "40px")
+    (music-info))
+(defwindow lock-screen
+    :geometry (geometry :x "38%"
+                        :y "41%" 
+                        :width "325px" 
+                        :height "130px")
+    (lock-screen))
+(defwindow powermenu
+    :geometry (geometry :x "94%"
+                        :y "32%" ; 25%
+                        :width "98px"
+                        :height "100px")
+    (powermenu))
+(defwindow weather
+    :geometry (geometry :x "93%"
+                        :y "53%" 
+                        :width "120px" 
+                        :height "82px")
+    (weather))
+(defwindow date
+    :geometry (geometry :x "93%"
+                        :y "64%" 
+                        :width "120px" 
+                        :height "73px")
+    (date))
+(defwindow quote
+    :geometry (geometry :x "85%"
+                        :y "88%" 
+                        :width "270px" 
+                        :height "60px")
+    (quote))

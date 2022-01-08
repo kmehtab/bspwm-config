@@ -157,6 +157,14 @@ super + shift + Return
 super + space 
    sh $HOME/.config/rofi/launcher.sh 
 
+# Rofi notification center
+super + grave
+	~/.local/bin/rofi_notif_center.sh
+
+Powermenu
+super + shift + e
+  eww windows | grep '*' || eww open-many close-me powermenu
+
 super + shift + b
  google-chrome-stable 
 
@@ -171,7 +179,11 @@ super + c
 
 # Toggle eww dashboard
 alt + d
-    sh $HOME/.local/bin/dshbrd
+    eww windows | grep '*' || eww open-many close-me outer-window profile line system-manager layout-manager music-player weather date quote music-info
+
+# display sxhkd bindings
+super + shift + a
+	~/.local/bin/sxhkd_help
 
 # Screenshot
 # Save to local storage
@@ -180,7 +192,7 @@ alt + d
 #     maim --select "$HOME/Pictures/Screenshots/$DATE"; \
 #     sh ~/.local/bin/viewscr ~/Pictures/Screenshots/$DATE | xclip -selection clipboard -t image/png
 Print
-  image=$(date +Screenshot_at_%H%M.%d%m%Y).png && maim -s -s -b 5.0 -p -5 -c 1,0,0.294 "$HOME/Pictures/Screenshots/$image" && dunstify -r "991030" "Say cheese..." "$image" -a scrot
+  image=$(date +Screenshot_at_%d%m%y_%H%M%S).png && maim -s -s -b 5.0 -p -5 -c 1,0,0.294 "$HOME/Pictures/Screenshots/$image" && dunstify -r "991030" "Say cheese..." "$image" -a scrot
 
 # Upload to CDN
 super + Print

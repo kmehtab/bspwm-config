@@ -36,8 +36,8 @@ format-disconnected-foreground = ${color.red}
 format-disconnected-padding = 0
 
 #label-connected = %essid%
-label-connected = "󰛳" 
-label-disconnected = "󰲛"
+label-connected = "󰇧" 
+label-disconnected = "󰇨"
 
 [module/onlinestatus]
 type = custom/script

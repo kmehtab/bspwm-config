@@ -1,0 +1,21 @@
+(include "./_widgets.yuck")
+
+
+(defwindow dashboard
+    :geometry (geometry :x "84%"
+                        :y "29%"
+                        :width "305px"
+                        :height "67%")
+    
+    (box
+        (outer-window)
+        (profile )
+        (line )
+        (system-manager)
+        (layout-manager)
+        (music-player)
+        (weather )
+        (date )
+        (quote )
+        (music-info)
+    ))

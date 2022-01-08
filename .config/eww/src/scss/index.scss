@@ -1,0 +1,23 @@
+.outer-window {
+    background-color: $bgSecondary;
+    border-radius: 10px;
+    border-top-left-radius: 0px;
+}
+
+.line {
+    background-color: $bgSecondaryAlt;
+    border-radius: 50px;
+}
+
+.profile, .layout-manager, .system-manager, .music-player {
+    border-radius: 10px;
+}
+
+.close-me {
+  all: unset;
+  background-color: transparent;
+}
+
+.close-me-container {
+  background-color: transparent;
+}

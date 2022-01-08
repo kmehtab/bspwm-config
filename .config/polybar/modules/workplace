@@ -4,7 +4,7 @@ type = internal/bspwm
 reverse-scroll = false
 enable-scroll = false
 
-ws-icon-0 = 1;%{F#4C8BF5}%{A3:google-chrome-stable &:}󰇩%{A}%{F-}
+ws-icon-0 = 1;%{F#1DA462}%{A3:google-chrome-stable &:}󰊯%{A}%{F-}
 ws-icon-1 = 2;%{F#00c0ff}%{A3:Alacritty &:}󰆍%{A}%{F-}
 ws-icon-2 = 3;%{F#ff004b}%{A3:grep " T " /tmp/mpv-wpf.txt | tail -1 | cut -d' ' -f2| xargs -L1 -I[] xdotool key --window "[]" p &:}󰄘%{A}%{F-}
 ws-icon-3 = 4;%{F#ffca00}%{A3:start-newsboat.sh &:}󰇰%{A}%{F-}

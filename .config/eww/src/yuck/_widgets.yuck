@@ -1,0 +1,133 @@
+(defwidget outer-window [] 
+    (box))
+(defwidget line [] 
+    (box))
+(defwidget profile [] 
+    (box :orientation "v"
+         :space-evenly "true"
+
+        (box :class "pfp")
+        (box :class "text" 
+            :space-evenly "true"
+
+           (label :class "username" :text "@${username}")
+        )
+    )
+)
+(defwidget system-manager [] 
+    (box :orientation "h" 
+         :space-evenly "false" 
+
+        (box :class "ram-bar"
+            (scale :min 0 :max 101 :active "false" :value used_ram :orientation "v" :flipped "true"
+        ))
+        (box :class "disk-bar"
+            (scale :min 0 :max 101 :active "false" :value {round((1 - (EWW_DISK["/"].free / EWW_DISK["/"].total)) * 100, 0)} :orientation "v" :flipped "true"
+        ))
+        (box :class "vol-bar"
+            (scale :min 0 :max 101 :value volume :orientation "v" :flipped "true" :onchange "amixer -q set Master {}%"
+        ))
+        (box :class "bri-bar"
+            (scale :min 0 :max 101 :value brightness :orientation "v" :flipped "true" :onchange "brightnessctl set {}%"
+        ))
+    )
+)
+(defwidget layout-manager [] 
+    (box :class "layouts" 
+         :orientation "v"
+        (box :class "layout-btn"
+             :orientation "h"
+             :space-evenly "true"
+            (button :onclick "bsp-layout once grid" "")
+            (button :onclick "bsp-layout once even" "")
+            (button :onclick "bsp-layout once tall" "")
+        )
+    )
+)
+(defwidget music-player [] 
+    (box :class "music-player"
+         :orientation "h"
+        (box :class "song-art" :style "background-image: url('${art}')" :tooltip "${song_artist} - ${song_title_full}" song_art)
+        (box :class "song-info" :orientation "v"
+            (box :class "song-controls" :orientation "v"
+                (button :onclick "playerctl previous" "")
+                (button :class "play-pause" :onclick "playerctl play-pause" player_status)
+                (button :onclick "playerctl next" "")
+            )
+        )
+    )
+)
+(defwidget music-info []
+    (box :class "music-info" :orientation "v"
+        (box :class "b" :orientation "h" :space-evenly "false"
+            (label :class "song-title" :text song_title)
+        )
+        (box :class "c" :orientation "h" :space-evenly "false"
+            (label :class "song-artist" :text "by ${song_artist}")
+        )
+    )
+)
+(defwidget lock-screen [] 
+    (box :orientation "v" :space-evenly "true"
+        (box :class "lock-screen"
+             :orientation "h"
+
+            (box :class "lock-pfp")
+            (box :class "lock-text" :orientation "v"
+                (box :class "lock-username" username)
+                (box :class "lock-hostname" "@${hostname}")
+            )
+        )
+    )
+)
+(defwidget powermenu []
+    (box :class "powermenu" :orientation "v"
+        (button :onclick "systemctl poweroff" "")
+        (button :onclick "systemctl reboot" "")
+        (button :onclick "bspc quit" "")
+        (button :onclick "sh ~/.local/bin/lockscreen.sh" "")
+        (button :onclick "systemctl hybrid-sleep" "")
+    )
+)
+(defwidget launcher []
+    (box :class "launcher" :orientation "h"
+        (button :class "search" :onclick "~/.local/bin/appmnu" "  Click to search")
+    )
+)
+(defwidget weather []
+    (box :class "weather" :orientation "v" :space-evenly "false"
+        (box :orientation "h" :space-evenly "false"
+            (label :class "weather-desc" :text "${weather_desc}")
+        )
+        (label :class "weather-temp" :text "${weather_temp}°C")
+        (label :class "weather-feels" :text "Feels like ${weather_feels}°C")
+    )
+)
+(defwidget date []
+    (box :class "date" :orientation "v" :space-evenly "false"
+        (box :orientation "h" :space-evenly "false"
+            (label :class "weekday" :text "${weekday}")
+        )
+        (label :class "monthday" :text "${monthday}")
+    )
+)
+(defwidget quote []
+    (box :class "quote" :orientation "v"
+        (label :class "text" :text '"${quote}"')
+        (label :class "author" :text "━ ${quote_author}")
+    )
+)
+(defwindow calendar
+           :monitor 0
+           :geometry (geometry :x "-3%"
+                               :y "-4%"
+                               :width "9%"
+                               :height "18%"
+                               :anchor "bottom right")
+           :stacking "fg"
+           :windowtype "dialog"
+           :wm-ignore true
+
+  (calendar :halign "center" 
+            :valign "center"
+            :onhover `cal -m`))

@@ -1,5 +1,6 @@
-(include "./windows/settings-panel/index.yuck")
-(include "./windows/notifications/index.yuck")
-(include "./windows/close-me.yuck")
+;; NOTE: This is only for 1366x768 resolution! Use at your own risk.
 
-
+(include "./src/yuck/_definitions.yuck")
+(include "./src/yuck/_widgets.yuck")
+(include "./src/yuck/_variables.yuck")
+(include "./src/yuck/close-me.yuck")
