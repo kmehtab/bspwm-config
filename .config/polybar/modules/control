@@ -12,8 +12,8 @@ click-left = nemo
 type = custom/script
 exec = echo "󰨤"
 
-click-right = scrot "$(date +Screenshot_at_%d%m%y_%H%M%S).png" -e 'mv "$f" ~/Pictures/Screenshots/ && dunstify -r "991030" "Screenshot taken." "$f" -a scrot' &
+click-right = scrot "$(date +Screenshot_at_%H%M.%d%m%Y).png" -e 'mv "$f" ~/Pictures/Screenshots/ && dunstify -r "991030" "Say cheese..." "$f" -a scrot' &
 
-click-left = image=$(date +Screenshot_at_%d%m%y_%H%M%S).png && maim -s -s -b 5.0 -p -5 -c 1,0,0.294 "$HOME/Pictures/Screenshots/$image" && dunstify -r "991030" "Screenshot taken." "$image" -a scrot &
+click-left = image=$(date +Screenshot_at_%H%M.%d%m%Y).png && maim -s -s -b 5.0 -p -5 -c 1,0,0.294 "$HOME/Pictures/Screenshots/$image" && dunstify -r "991030" "Say cheese..." "$image" -a scrot &
 
 ; vim:ft=dosini

@@ -163,4 +163,4 @@
     appname = notify-send
     new_icon = /usr/share/icons/Nord-Icon/48x48/apps/bell.svg
 
-# vim: ft=cfg
+# vim: ft=conf
