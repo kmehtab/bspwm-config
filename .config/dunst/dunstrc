@@ -1,5 +1,5 @@
 [global]
-    font = BreezeSans 14
+    font = BreezeSans 12
     allow_markup = yes
     markup = full
     # The format of the message. Possible variables are:
@@ -15,52 +15,62 @@
     icon_position = left
 	  min_icon_size = 26
 	  max_icon_size = 96
+    icon_path = /usr/share/icons/Nord-Icon/48x48/status/:/usr/share/icons/Nord-Icon/48x48/devices/:/usr/share/icons/Nord-Icon/48x48/apps
     icon_folders = ""
     sort = yes
     indicate_hidden = false
-    alignment = center
-    vertical_alignment = top
+	  alignment = left
+    vertical_alignment = center 
     bounce_freq = 0
-    show_age_threshold = -1
+    show_age_threshold = 60
     hide_duplicates_count = true
     word_wrap = yes
     ignore_newline = no
-    geometry = "300x10-10+10"
+    geometry = "300x10-10-50"
     # notification_height = 100
-    shrink = true
+    shrink = no 
     transparency = 18
     idle_threshold = 120
     monitor = 0
     follow = keyboard
+    ### History ###
     sticky_history = yes
-    line_height = 8
+    history_length = 20
+    # line_height = 8
     separator_height = 2
     padding = 0
     horizontal_padding = 10
+    frame_width = 1
     separator_color = frame
     startup_notification = true
 	  # Always run rule-defined scripts, even if the notification is suppressed
 	  always_run_script = true
 	  corner_radius = 10
-    # dmenu path
-    dmenu = /usr/bin/dmenu -p dunst:
-    browser=/usr/bin/qutebrowser
+
+    ### Misc/Advanced ###
+    dmenu = /usr/bin/urxvt -e fzf:
+    browser = /usr/bin/linkhandler
+    always_run_script = false
+    title = Dunst
+    class = Dunst
+    startup_notification = true
+    force_xinerama = false
 
 [frame]
     width = o
-    color = "#0b3d91"
+    frame_color = "#0D335D"
 
-[shortcuts]
-    # close notification
-    close = twosuperior
-    # close all notifications
-    close_all = mod4+shift+m
-    # redisplay last message(s)
-    history = mod4+n
-    # context menu
-    context = mod4+shift+i
-    # important: colors have to be defined in quotation marks.
-    # otherwise the '#' and following  would be interpreted as a comment.
+# [shortcuts]
+#     # close notification
+#     close = twosuperior
+#     # close all notifications
+#     close_all = mod4+shift+m
+#     # redisplay last message(s)
+#     history = mod4+n
+#     # context menu
+#     context = mod4+shift+i
+#     # important: colors have to be defined in quotation marks.
+#     # otherwise the '#' and following  would be interpreted as a comment.
 [low]
     msg_urgency = low
     format = "󰦕<b> %s </b></span>\n%b"
@@ -69,8 +79,9 @@
     timeout = 3
 
 [urgency_normal]
-    background = "#0b3d91"
+    background = "#1c2c43"
     foreground = "#ffffff"
+    frame_color = "#7B9CCC"
     timeout = 5
 
 [critical]
@@ -91,16 +102,15 @@
 
 [spotify]
 	  appname = Spotify*
-    format = "%b\n[ <span font_desc='ubuntumono nerd font 12'><i>%s</i></span> ]"
-	  # format = "<b> Now Playing:</b>\n%s\n%b"
-    background = "#191414"
+    format = "<b> Now Playing:</b>\n%s\n%b"
+    background = "#1c2c43"
 
 [ncmpcpp]
 	appname = ncmpcpp
 	format = "<b> Now Playing:</b>\n%s\n%b"
 	background = "#32302f"
 	foreground = "#83a598"
-	frame_color = "#a89984"
+	frame_frame_color = "#a89984"
 
 [bluetooth]
     summary = bluetooth
@@ -142,4 +152,15 @@
   urgency = ""
   script = "~/.local/scripts/save_notification.py"
 
-# vim: ft=cfg
+[log_notifs]
+    script = ~/.local/bin/dunst_logger.sh
+
+[dunstify_icon]
+    appname = dunstify
+    new_icon = /usr/share/icons/Nord-Icon/48x48/apps/bell.svg
+
+[notify_send_icon]
+    appname = notify-send
+    new_icon = /usr/share/icons/Nord-Icon/48x48/apps/bell.svg
+
+# vim: ft=conf

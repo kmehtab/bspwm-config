@@ -192,3 +192,7 @@ super + c
 # Lf: File manager
 {mod5 +,alt + a;}  l
 	toggle-lf.sh
+
+# Scratchpad
+super + a
+  tdrop -ma -w -9 -x 4 -y 4 -s dropdown alacritty

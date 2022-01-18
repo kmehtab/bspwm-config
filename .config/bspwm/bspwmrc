@@ -39,6 +39,8 @@ bspc config external_rules_command $HOME/.config/bspwm/external_rules.sh
 
 #emacs start in tilted
 bspc rule -a Emacs state=tiled
+bspc rule -a Pavucontrol state=floating
+bspc rule -a PeaZip state=floating
 bspc rule -a mpv desktop='^3' follow=on state=tiled
 #bspc rule -a Alacritty desktop='^1' follow=on state=pseudo_tiled
 # bspc rule -a qutebrowser desktop='^2' 
@@ -61,25 +63,3 @@ bspc rule -a mpv desktop='^3' follow=on state=tiled
 # bspc desktop '^3' -l monocle
 
 # SCRATCHPADS
-
-# sid=$(wmctrl -lx | grep scratch.scratchpad| cut -d' ' -f1| head -1) \
-# && [ -z "$(echo $sid)" ] \
-	# && alacritty -t scratchpad --class scratch,scratchpad -d 35 10\
-	# & sleep 1 \
-	# && sid=$(wmctrl -lx | grep scratch.scratchpad| cut -d' ' -f1| head -1) \
-	# && echo "$sid" > /tmp/scratchID ;
-
-# cid=$(wmctrl -lx | grep calc.scratchpad| cut -d' ' -f1| head -1) \
-# && [ -z "$(echo $cid)" ] \
-	# && alacritty -t calculator --class calc,scratchpad -d 35 10 -e bash -c "calc -d" \
-	# & sleep 1 \
-	# && cid=$(wmctrl -lx | grep calc.scratchpad| cut -d' ' -f1| head -1) \
-	# && echo "$cid" > /tmp/calcID ;
-
-# LF
-# lid=$(wmctrl -lx | grep lf.lf| cut -d' ' -f1| head -1) \
-# && [ -z "$(echo $lid)" ] \
-	# && alacritty --config-file .config/alacritty/lf.yml -t lf --class lf,lf -d 75 16 -e startlf \
-	# & sleep 1 \
-	# && lid=$(wmctrl -lx | grep lf.lf| cut -d' ' -f1| head -1) \
-	# && echo "$lid" > /tmp/lfID;
