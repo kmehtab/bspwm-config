@@ -20,9 +20,9 @@ if [ "$PLAYER" = "spotify" ]; then
     STATUS=$(playerctl -p spotify status)
 
     if [ "$STATUS" = "Playing" ]; then
-        STATUS=""
+        STATUS=""
     else
-        STATUS=""
+        STATUS=""
     fi
     
     if [ "$PLAYER" = "spotify" ]; then

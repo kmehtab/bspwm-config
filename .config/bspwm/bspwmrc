@@ -5,7 +5,7 @@ xsetroot -cursor_name left_ptr &
 pgrep -x sxhkd > /dev/null || sxhkd &
 picom --experimental-backends --backend glx -b &
 dunst &
-newsboat &
+# newsboat &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 greenclip daemon & 
 # emacs --daemon &
@@ -14,16 +14,21 @@ xiccd &
 # Custome scirpts
 sh $HOME/.local/bin/dock.sh &
 sh $HOME/.local/bin/timer-checkupdates.sh &
+# sh $HOME/.local/bin/pac-S-notify.sh &
+# sh $HOME/.local/bin/pac-Rs-notify.sh &
+# sh $HOME/.local/bin/pac-Syu-notify.sh &
 pgrep bspswallow || $HOME/.local/bin/bspswallow &
 
 # Startup applicaitons
 nitrogen --restore
 source $HOME/.config/env
 
+xset r rate 250 40
+
 bspc monitor -d 1 2 3 4 5 6 7 8 9 0
 
-bspc config border_width        	3
-bspc config window_gap          	1
+bspc config border_width        	2
+bspc config window_gap          	2
 
 bspc config split_ratio          	0.50
 bspc config borderless_monocle   	true
@@ -51,7 +56,7 @@ bspc rule -a Code desktop='^2' follow=off
 # bspc rule -a Alacritty desktop='^2' follow=on
 # bspc rule -a newsboat desktop='^4' follow=on state=pseudo_tiled
 # bspc rule -a Vim desktop='^5' follow=on state=pseudo_tiled
-bspc rule -a Zathura desktop='^6' follow=on state=pseudo_tiled
+bspc rule -a ebook-viewer desktop='^6' follow=on state=pseudo_tiled
 # bspc rule -a Sxiv desktop='^6' follow=off 
 bspc rule -a Gimp-2.10 desktop='^7' state=floating 
 bspc rule -a discord desktop='^9' follow=off  
@@ -59,7 +64,7 @@ bspc rule -a discord desktop='^9' follow=off
 # Workspace 6
 bsp-layout set tall 2 -- --master-size 0.47
 
-# bspc rule -a mpv focus=off state=floating
+bspc rule -a mpv focus=off state=floating
 # bspc rule -a scratchpad locked=on sticky=on state=floating hidden=on
 # bspc rule -a lf locked=on sticky=on state=floating hidden=on
 

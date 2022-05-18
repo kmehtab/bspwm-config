@@ -4,7 +4,7 @@
 
 # make sxhkd reload its configuration files:
 alt + shift + r
-	pkill -USR1 -x sxhkd && dunstify -r 500 "SXHKD" "config reloaded"
+	pkill -USR1 -x sxhkd && notify-send -u normal -a Sxhkd  -i /usr/share/icons/Nord-Icon/48x48/apps/preferences-desktop-keyboard.svg "Config reloaded"
 
 #
 # bspwm hotkeys
@@ -12,7 +12,7 @@ alt + shift + r
 
 # quit/restart bspwm
 alt + r
-	bspc wm -r && dunstify -r 500 "BSPWM" "bspwm reloaded"
+	bspc wm -r && notify-send -u normal -a Bspwm  -i /usr/share/icons/Nord-Icon/48x48/apps/gnome-system.svg "Bspwm reloaded"
 
 # Quit and restart bspwm
 {super + shift + alt} + q
@@ -157,9 +157,15 @@ super + shift + Return
 super + space 
    sh $HOME/.config/rofi/launcher.sh 
 
+XF86Calculator
+	gnome-calculator
+
 # Rofi notification center
 super + grave
 	~/.local/bin/rofi_notif_center.sh
+
+super + shift + d
+  kill -s USR1 $(pidof deadd-notification-center)
 
 Powermenu
 super + shift + e
@@ -174,12 +180,26 @@ super + d
 super + p
 		rofi-pass
 
+alt + shift + f
+   sh $HOME/.config/rofi/search.sh
+
 super + c
 	rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
+
+# Rofi google
+super + shift + z
+	~/.local/bin/rofi-search.sh
+
+super + shift +c 
+  rofi -show calc -modi calc -no-show-match -no-sort
 
 # Toggle eww dashboard
 alt + d
     eww windows | grep '*' || eww open-many close-me outer-window profile line system-manager layout-manager music-player weather date quote music-info
+    
+# Open right click menu on root window
+~button3
+	~/.local/bin/root_menu.sh
 
 # display sxhkd bindings
 super + shift + a
@@ -192,12 +212,42 @@ super + shift + a
 #     maim --select "$HOME/Pictures/Screenshots/$DATE"; \
 #     sh ~/.local/bin/viewscr ~/Pictures/Screenshots/$DATE | xclip -selection clipboard -t image/png
 Print
-  image=$(date +Screenshot_at_%d%m%y_%H%M%S).png && maim -s -s -b 5.0 -p -5 -c 1,0,0.294 "$HOME/Pictures/Screenshots/$image" && dunstify -r "991030" "Say cheese..." "$image" -a scrot
+  image=$(date +Screenshot_at_%d%m%y_%H%M%S).png && maim -s -s -b 5.0 -p -5 -c 1,0,0.294 "$HOME/Pictures/Screenshots/$image" && dunstify -r "991030" "Screenshot taken." "$image" -a scrot
 
 # Upload to CDN
 super + Print
-  scrot "$(date +Screenshot_at_%H%M.%d%m%Y).png" -e 'mv "$f" ~/Pictures/Screenshots/ && dunstify -r "991030" "Say cheese..." "$f" -a scrot' &
+  scrot "$(date +Screenshot_at_%H%M.%d%m%Y).png" -e 'mv "$f" ~/Pictures/Screenshots/ && dunstify -r "991030" "Screenshot taken." "$f" -a scrot' &
 
 # Scratchpad
 super + a
   tdrop -ma -w -9 -x 4 -y 4 -s dropdown alacritty
+
+# Set layout for current desktop to tall
+control + l; t
+	bsp-layout set tall && notify-send -u normal -t 3000 "Tall layout enabled"	
+
+# Set layout for current desktop to wide
+control + l; w
+	bsp-layout set wide && notify-send -u normal -t 3000 "Wide layout enabled"	
+
+# Set layout for current desktop to even
+control + l; e
+	bsp-layout set even && notify-send -u normal -t 3000 "Even layout enabled"
+
+# Set layout for current desktop to tiled
+control + l; i
+	bsp-layout set tiled && notify-send -u normal -t 3000 "Tiled layout enabled"
+
+# Set layout for current desktop to float
+control + l; f
+	~/.config/sxhkd/bspfloat &; \
+	notify-send -u normal -t 3000 "Float layout enabled"
+
+# Whats the current layout?
+control + l; g
+	~/.config/sxhkd/query_bsplayout
+
+# Remove layout for focused desktop
+control + l; r
+	bsp-layout remove; \
+	~/.config/sxhkd/killbspfloat && notify-send -u normal -t 3000 "Layout removed"

@@ -110,7 +110,6 @@ element-text, element-icon {
 element {
     background-color:               @al;
     padding: 						5px;
-    background-color:               @al;
     text-color:                     @fg;
     border-radius:                  0%;
 }

@@ -50,9 +50,9 @@
         (box :class "song-art" :style "background-image: url('${art}')" :tooltip "${song_artist} - ${song_title_full}" song_art)
         (box :class "song-info" :orientation "v"
             (box :class "song-controls" :orientation "v"
-                (button :onclick "playerctl previous" "")
-                (button :class "play-pause" :onclick "playerctl play-pause" player_status)
-                (button :onclick "playerctl next" "")
+                (button :onclick "playerctl --player spotify previous" "")
+                (button :class "play-pause" :onclick "~/.config/eww/scripts/spotify-play-pause.sh" player_status)
+                (button :onclick "playerctl --player spotify next" "")
             )
         )
     )
@@ -86,7 +86,7 @@
         (button :onclick "systemctl reboot" "")
         (button :onclick "bspc quit" "")
         (button :onclick "sh ~/.local/bin/lockscreen.sh" "")
-        (button :onclick "systemctl hybrid-sleep" "")
+        (button :onclick "$HOME/.local/bin/lockscreen.sh & sleep 3 && systemctl suspend" :timeout "10s" :class "system-menu-icon" :cursor "pointer" "⏾︁")
     )
 )
 (defwidget launcher []
@@ -119,10 +119,10 @@
 )
 (defwindow calendar
            :monitor 0
-           :geometry (geometry :x "-3%"
+           :geometry (geometry :x "-4%"
                                :y "-4%"
-                               :width "9%"
-                               :height "18%"
+                               :width "11%"
+                               :height "18"
                                :anchor "bottom right")
            :stacking "fg"
            :windowtype "dialog"

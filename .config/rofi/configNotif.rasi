@@ -2,7 +2,7 @@ configuration {
 	display-drun:    " Apps";
 	display-window:  "缾 Windows";
 	show-icons:true;
-	font: "monospace 14";
+	font: "FiraCode Nerd Font 10";
 }
 
 * {
@@ -30,35 +30,35 @@ configuration {
 	selected-active-background:  @actbg;
 	active-background:           @background-color;
 
-	line-margin:                 2;
-	line-padding:                2;
+	line-margin:                 1;
+	line-padding:                1;
 	separator-style:             "none";
 	hide-scrollbar:              "true";
 	margin:                      0;
-	padding:                     10;
+	padding:                     5;
 }
 
 window {
 	location:	 northeast;
 	anchor:		 northeast;
-	//height:		 85%;
-    y-offset:    68px;
-    x-offset:    12px;
-	width:		 20%;
+	height:		 97%;
+    y-offset:    -8px;
+    x-offset:    8px;
+	width:		 28%;
 	orientation: horizontal;
 	children:	 [mainbox];
-    border-radius: 12px;
+    border-radius: 10px;
     border: 3px solid;
     border-color: #3b4252;
 }
 
 mainbox {
-	spacing:  0.8em;
+	spacing:  0.3em;
     orientation: vertical;
 	children: [ inputbar, listview ];
 }
 
-button { padding: 5px 2px; }
+button { padding: 2px 2px; }
 
 button selected {
 	background-color: @active-background;
@@ -66,23 +66,23 @@ button selected {
 }
 
 inputbar {
-	padding: 5px;
-	spacing: 5px;
+	padding: 3px;
+	spacing: 2px;
 }
 
 listview {
-	spacing: 0.5em;
+	spacing: 0.6em;
 	dynamic: true;
 	cycle:   false;
 }
 
 element {
-        padding: 10px;
+        padding: 1px;
 }
 
 prompt {
-       padding:     35px 20px 20px 25px;
-       font:        "monospace 18";
+       padding:     20px 20px  20px 25px;
+       font:        "FiraCode Nerd Font 18";
 }
 
 entry {
@@ -145,9 +145,18 @@ element alternate.active {
 }
 element-icon {
 	size: 7ch;
+    text-color:       				inherit;
+    background-color: 				inherit;
 }
 element.selected {
     border-radius: 8px;
-	border:           0 0 0 5px solid;
+	border:           0 0 0 0px solid;
 	border-color:	    @winbg;
+    text-color:       				@background-color;
+}
+
+
+element-text {
+	text-color:       @active-foreground;
+    background-color: 				inherit;
 }

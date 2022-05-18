@@ -4,7 +4,7 @@ configuration {
 	display-windowcd:  "缾";
 	display-file-browser-extended: "";
 	show-icons:true;
-	font: "monospace 16";
+font: "FiraCode Nerd Font 10";
 }
 
 * {
@@ -42,13 +42,13 @@ configuration {
 window {
 	location:	 west;
 	anchor:		 west;
-	height:		 85%;
-    //y-offset:    3%;
-    x-offset:    -12px;
-	width:		 25%;
+	height:		 97%;
+    y-offset:    -27px;
+    x-offset:    -8px;
+	width:		 35%;
 	orientation: horizontal;
 	children:	 [mainbox];
-    border-radius: 12px;
+    border-radius: 10px;
     border: 3px solid;
     border-color: #3b4252;
 }
@@ -74,23 +74,23 @@ inputbar {
 listview {
 	spacing: 0.5em;
 	dynamic: false;
-	cycle:   true;
+	cycle:   false;
 }
 
 element {
-    padding: 10px;
+    padding: 5px;
 }
 
 prompt {
-       padding:     20px 0px 0px 25px;
+       padding:     25px 0px 0px 25px;
 }
 
 entry {
 	expand:         true;
 	text-color:     @normal-foreground;
 	vertical-align: 0;
-	padding:        23px 0px 0px 25px;
-    font:           "monospace 14";
+	padding:        25px 0px 0px 25px;
+	font: "FiraCode Nerd Font 10";
 }
 
 element normal.normal {
@@ -114,7 +114,7 @@ element normal.active {
 element selected.normal {
 	background-color: @selected-normal-background;
 	text-color:       @selected-normal-foreground;
-	border:           0 5px solid 0 0;
+	border:           0 0px solid 0 0;
 	border-color:	    @active-background;
 }
 
@@ -147,7 +147,13 @@ element alternate.active {
 }
 element-icon {
 	size: 2.65ch;
+    background-color: 				inherit;
 }
 element.selected {
     border-radius: 8px;
+}
+
+element-text {
+    text-color:       				inherit;
+    background-color: 				inherit;
 }

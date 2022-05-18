@@ -90,11 +90,26 @@ ramp-capacity-framerate = 750
 
 [module/date]
 type = custom/script
-exec =  date '+%a %e %b %l:%M' 
+exec =  date '+%a %e %l:%M' 
 ; exec =  date '+%a %e %l:%M' 
 interval = 60
 tail=true
 
 click-left = ~/.config/polybar/scripts/calendar.sh &
+
+[module/pulseaudio-control]
+type = custom/script
+tail = true
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+
+exec = pulseaudio-control --icons-volume ",  , " --icon-muted " " --format '$VOL_ICON $VOL_LEVEL' listen
+click-right = exec pavucontrol &
+click-left = pulseaudio-control togmute
+click-middle = pulseaudio-control --sink-blacklist "alsa_output.pci-0000_01_00.1.hdmi-stereo-extra2" next-sink
+scroll-up = pulseaudio-control --volume-max 100 up
+scroll-down = pulseaudio-control --volume-max 100 down
+
+
 
 ; vim:ft=dosini

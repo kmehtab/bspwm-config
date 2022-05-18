@@ -44,6 +44,6 @@ case "$class" in
 IN
         case "$(ps -p "${_NET_WM_PID:?}" -o comm= 2>/dev/null)" in
             (spotify)
-                echo desktop=^10 state=pseudo_tiled rectangle=1650x900+200+80;;
+                echo desktop=^10 state=pseudo_tiled rectangle=1250x800+200+80;;
         esac;;
 esac;

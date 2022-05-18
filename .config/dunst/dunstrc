@@ -40,7 +40,7 @@
     separator_height = 2
     padding = 0
     horizontal_padding = 10
-    frame_width = 1
+    frame_width = 2
     separator_color = frame
     startup_notification = true
 	  # Always run rule-defined scripts, even if the notification is suppressed
@@ -57,7 +57,7 @@
     force_xinerama = false
 
 [frame]
-    width = o
+    width = 3
     frame_color = "#0D335D"
 
 # [shortcuts]
@@ -79,9 +79,9 @@
     timeout = 3
 
 [urgency_normal]
-    background = "#1c2c43"
+    background = "#0e182788"
     foreground = "#ffffff"
-    frame_color = "#7B9CCC"
+    frame_color = "#0e1827"
     timeout = 5
 
 [critical]
@@ -103,14 +103,15 @@
 [spotify]
 	  appname = Spotify*
     format = "<b> Now Playing:</b>\n%s\n%b"
-    background = "#1c2c43"
+    background = "#0e182788"
+    frame_color = "#0e182788"
 
 [ncmpcpp]
 	appname = ncmpcpp
 	format = "<b> Now Playing:</b>\n%s\n%b"
 	background = "#32302f"
 	foreground = "#83a598"
-	frame_frame_color = "#a89984"
+	frame_color = "#a89984"
 
 [bluetooth]
     summary = bluetooth

@@ -100,7 +100,7 @@ radius = 15
 fixed-center = true
 bottom = true
 
-background = ${colors.background}
+background = #00000000 
 foreground = ${colors.foreground}
 
 border-size = 0
@@ -345,9 +345,9 @@ click-left = ~/.config/polybar/scripts/open.sh &
 
 [bar/status]
 width = 14.3%
-height = 30
+height = 32
 offset-x = 82.2%
-offset-y = 0.65%
+offset-y = 0.6%
 radius = 15
 fixed-center = true
 bottom = true
@@ -365,11 +365,12 @@ module-margin-left = 1
 module-margin-right = 1
  
 font-0 = BreezeSans:pixelsize=11:style=Medium Condensed;4
-font-1 = Material Design Icons Desktop:pixelsize=13;4
+font-1 = Material Design Icons Desktop:pixelsize=16;1
 font-2 = BreezeSans:pixelsize=10:style=Bold Condensed;3
-font-3 = UbuntuMono Nerd Font Mono:pixelsize=16:style=Medium Condensed;7
+font-3 = UbuntuMono Nerd Font Mono:pixelsize=19:style=Medium Condensed;4
+font-4 = UbuntuMono Nerd Font Mono:pixelsize=19:style=Medium Condensed;4
  
-modules-center = ethernet speed date 
+modules-center = speed pulseaudio-control date 
 
 wm-restack = bspwm
 
@@ -416,6 +417,7 @@ cursor-scroll = default
 [module/tray]
 type = custom/script
 exec = echo "tray"
+background-color = #00000000
 
 [module/open-menu]
 type = custom/script
@@ -423,20 +425,6 @@ exec = echo "%{O-3}󰅁"
 interval = 600
 
 tail = true
-
-[module/pulseaudio-control]
-type = custom/script
-tail = true
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
-
-exec = pulseaudio-control --icons-volume ",  , " --icon-muted " " --format '$VOL_ICON $VOL_LEVEL %' listen
-click-right = exec pavucontrol &
-click-left = pulseaudio-control togmute
-click-middle = pulseaudio-control --sink-blacklist "alsa_output.pci-0000_01_00.1.hdmi-stereo-extra2" next-sink
-scroll-up = pulseaudio-control --volume-max 100 up
-scroll-down = pulseaudio-control --volume-max 100 down
-
 
 [settings]
 screenchange-reload = false
@@ -449,7 +437,7 @@ margin-bottom = 5
 [module/void]
 type = custom/text
 content-foreground = ${colors.foreground}
-content-background = ${colors.background}
+content-background = #00000000 
 content = " "
 
 ; vim:ft=dosini

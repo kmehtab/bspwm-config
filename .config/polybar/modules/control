@@ -6,7 +6,7 @@ click-left = ~/.config/polybar/scripts/search.sh &
 [module/file-man]
 type = custom/script
 exec = echo "󰉋"
-click-left = nemo 
+click-left = nautilus 
 
 [module/screenshot]
 type = custom/script
